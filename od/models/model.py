@@ -3,7 +3,7 @@ from addict import Dict
 from torch import nn
 import math
 import yaml
-from yaml.loader import fullloader
+from yaml.loader import Fullloader
 import torch
 from od.models.modules.common import Conv
 from od.models.backbone import build_backbone
