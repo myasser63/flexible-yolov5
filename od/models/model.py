@@ -3,7 +3,7 @@ from addict import Dict
 from torch import nn
 import math
 import yaml
-from yaml.loader import Fullloader
+from yaml.loader import FullLoader
 import torch
 from od.models.modules.common import Conv
 from od.models.backbone import build_backbone
@@ -20,7 +20,7 @@ class Model(nn.Module):
 
         super(Model, self).__init__()
         if type(model_config) is str:
-            model_config = yaml.load(open(model_config, 'r'), loader=FullLoader)
+            model_config = yaml.load(open(model_config, 'r'), Loader=FullLoader)
         model_config = Dict(model_config)
         backbone_type = model_config.backbone.pop('type')
         self.backbone = build_backbone(backbone_type, **model_config.backbone)
